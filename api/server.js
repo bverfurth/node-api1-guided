@@ -15,10 +15,10 @@ server.get('/', (req, res) => {
 server.get('/api/dogs/:id', (req, res) => {
   Dog.findById(req.params.id)
     .then(dog => {
-      if(dog) {
+      if (dog) {
         res.json(dog)
       } else {
-        res.status(404).json({ message: })
+        res.status(404).json({ message: 'not found' })
       }
     })
     .catch(err => {
@@ -31,15 +31,15 @@ server.get('/api/dogs', (req, res) => {
   res.json('fetch all dogs')
 })
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
-server.post('/api/dogs', (req, res)=> {
+server.post('/api/dogs', (req, res) => {
   res.json('create new dog')
 })
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
-server.put('/api/dogs/:id', (req, res)=> {
+server.put('/api/dogs/:id', (req, res) => {
   res.json('update exisitn dog')
 })
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
-server.delete('/api/dogs/:id', (req, res)=> {
+server.delete('/api/dogs/:id', (req, res) => {
   res.json('delete do with id')
 })
 
